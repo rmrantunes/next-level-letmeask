@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useRoom } from "hooks/useRoom";
 
 import { database } from "services/firebase";
@@ -19,11 +19,21 @@ const AdminRoom = () => {
   const roomId = params.id;
   const { questions, title } = useRoom(roomId);
 
+  const history = useHistory();
+
   async function handleRemoveQuestion(questionId: string) {
     const proceedRemoving = window.confirm("Deseja mesmo remover a pergunta?");
     if (!proceedRemoving) return;
 
     await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
+  }
+
+  async function handleEndRoom() {
+    await database.ref(`rooms/${roomId}`).update({
+      endedAt: new Date(),
+    });
+
+    history.push("/");
   }
 
   return (
@@ -34,7 +44,9 @@ const AdminRoom = () => {
 
           <div>
             <RoomCode code={roomId} />
-            <Button isOutlined>Encerrar sala</Button>
+            <Button isOutlined onClick={handleEndRoom}>
+              Encerrar sala
+            </Button>
           </div>
         </div>
       </header>
