@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useAuth } from "hooks/useAuth";
 
 import Button from "components/Button";
-import RoomCode from "./RoomCode";
+import RoomCode from "components/RoomCode";
 import logoImg from "assets/logo.svg";
 
 import "styles/room.scss";
