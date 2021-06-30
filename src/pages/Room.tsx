@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "hooks/useAuth";
 
@@ -9,14 +9,44 @@ import logoImg from "assets/logo.svg";
 import "styles/room.scss";
 import { database } from "services/firebase";
 
+type Question = {
+  id: string;
+  content: string;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  isHighlighted: boolean;
+  isAnswered: boolean;
+};
+
+type FirebaseQuestions = Record<string, Omit<Question, "id">>;
+
 type RoomParams = { id: string };
 
 const Room = () => {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState("");
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [title, setTitle] = useState("");
 
   const roomId = params.id;
+
+  useEffect(() => {
+    const roomRef = database.ref(`rooms/${roomId}`);
+
+    roomRef.on("value", (room) => {
+      const databaseRoom = room.val();
+      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
+      const parsedQuestion = Object.entries(firebaseQuestions).map(
+        ([key, value]) => ({ id: key, ...value })
+      );
+
+      setTitle(databaseRoom.title);
+      setQuestions(parsedQuestion);
+    });
+  }, [roomId]);
 
   async function handleSendNewQuestion(event: React.FormEvent) {
     event.preventDefault();
@@ -49,8 +79,14 @@ const Room = () => {
 
       <main>
         <div className="room-title">
-          <h1>todo: room title</h1>
-          <span>todo: question amount</span>
+          <h1>Sala {title}</h1>
+
+          {questions.length && (
+            <span>
+              {questions.length &&
+                (questions.length > 1 ? "pergunta" : "perguntas")}
+            </span>
+          )}
         </div>
 
         <form onSubmit={handleSendNewQuestion}>
