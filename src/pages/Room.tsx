@@ -8,8 +8,9 @@ import logoImg from "assets/logo.svg";
 
 import "styles/room.scss";
 import { database } from "services/firebase";
+import Question from "components/Question";
 
-type Question = {
+type QuestionType = {
   id: string;
   content: string;
   author: {
@@ -20,7 +21,7 @@ type Question = {
   isAnswered: boolean;
 };
 
-type FirebaseQuestions = Record<string, Omit<Question, "id">>;
+type FirebaseQuestions = Record<string, Omit<QuestionType, "id">>;
 
 type RoomParams = { id: string };
 
@@ -28,7 +29,7 @@ const Room = () => {
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState("");
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState("");
 
   const roomId = params.id;
@@ -79,7 +80,7 @@ const Room = () => {
 
       <main>
         <div className="room-title">
-          <h1>Sala {title}</h1>
+          <h1>Sala: {title}</h1>
 
           {questions.length && (
             <span>
@@ -112,6 +113,16 @@ const Room = () => {
             </Button>
           </div>
         </form>
+
+        <div className="question-list">
+          {questions.map((question) => (
+            <Question
+              key={question.id}
+              content={question.content}
+              author={question.author}
+            />
+          ))}
+        </div>
       </main>
     </div>
   );
