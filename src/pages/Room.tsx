@@ -83,8 +83,8 @@ const Room = () => {
 
           {questions.length && (
             <span>
-              {questions.length &&
-                (questions.length > 1 ? "pergunta" : "perguntas")}
+              {questions.length}{" "}
+              {questions.length > 1 ? "perguntas" : "pergunta"}
             </span>
           )}
         </div>
