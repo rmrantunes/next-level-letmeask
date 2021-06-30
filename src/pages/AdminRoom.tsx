@@ -1,11 +1,14 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useRoom } from "hooks/useRoom";
+
+import { database } from "services/firebase";
 
 import Button from "components/Button";
 import RoomCode from "components/RoomCode";
 import Question from "components/Question";
+
 import logoImg from "assets/logo.svg";
+import deleteImg from "assets/delete.svg";
 
 import "styles/room.scss";
 
@@ -15,6 +18,13 @@ const AdminRoom = () => {
   const params = useParams<AdminRoomParams>();
   const roomId = params.id;
   const { questions, title } = useRoom(roomId);
+
+  async function handleRemoveQuestion(questionId: string) {
+    const proceedRemoving = window.confirm("Deseja mesmo remover a pergunta?");
+    if (!proceedRemoving) return;
+
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
+  }
 
   return (
     <div id="page-room">
@@ -47,7 +57,14 @@ const AdminRoom = () => {
               key={question.id}
               content={question.content}
               author={question.author}
-            />
+            >
+              <button
+                aria-label="Remover pergunta"
+                onClick={() => handleRemoveQuestion(question.id)}
+              >
+                <img src={deleteImg} alt="Ícone de lixeira" />
+              </button>
+            </Question>
           ))}
         </div>
       </main>
