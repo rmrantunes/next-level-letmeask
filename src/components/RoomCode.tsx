@@ -16,6 +16,7 @@ const RoomCode = (props: RoomCodeProps) => {
       onClick={copyRoomCodeToClipboard}
       className="room-code"
       aria-label="Copiar link da sala"
+      title="Copiar link da sala"
     >
       <div>
         <img src={copyImg} alt="Ícone de copiar" />
