@@ -21,7 +21,7 @@ const Header = (props: HeaderProps) => {
 
         <div>
           <RoomCode code={props.roomId} />
-          {props.isAdmin && (
+          {props.isAdmin && props.isLoggedIn && (
             <Button isOutlined onClick={props.onEndRoom}>
               Encerrar sala
             </Button>
