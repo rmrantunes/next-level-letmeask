@@ -1,13 +1,12 @@
 import { useHistory, useParams } from "react-router-dom";
 import { useRoom } from "hooks/useRoom";
+import { useAuth } from "hooks/useAuth";
 
 import { database } from "services/firebase";
 
-import Button from "components/Button";
-import RoomCode from "components/RoomCode";
 import Question from "components/Question";
+import Header from "components/Header";
 
-import logoImg from "assets/logo.svg";
 import deleteImg from "assets/delete.svg";
 import checkImg from "assets/check.svg";
 import answerImg from "assets/answer.svg";
@@ -19,7 +18,8 @@ type AdminRoomParams = { id: string };
 const AdminRoom = () => {
   const params = useParams<AdminRoomParams>();
   const roomId = params.id;
-  const { questions, title } = useRoom(roomId);
+  const { signOut } = useAuth();
+  const { questions, title, isAdmin } = useRoom(roomId);
 
   const history = useHistory();
 
@@ -50,20 +50,20 @@ const AdminRoom = () => {
     });
   }
 
+  function handleSignOut() {
+    signOut();
+    history.push("/");
+    window.location.reload();
+  }
+
   return (
     <div id="page-room">
-      <header>
-        <div className="header-content">
-          <img src={logoImg} alt="Letmeask" />
-
-          <div>
-            <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleEndRoom}>
-              Encerrar sala
-            </Button>
-          </div>
-        </div>
-      </header>
+      <Header
+        roomId={roomId}
+        onEndRoom={handleEndRoom}
+        onSignOut={handleSignOut}
+        isAdmin={isAdmin}
+      />
 
       <main>
         <div className="room-title">
