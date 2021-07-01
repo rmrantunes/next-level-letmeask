@@ -91,7 +91,8 @@ const Room = () => {
               </div>
             ) : (
               <span>
-                Para enviar uma pergunta, <button>faça seu login</button>
+                Para enviar uma pergunta,{" "}
+                <button onClick={signInWithGoogle}>faça seu login</button>
               </span>
             )}
             <Button type="submit" disabled={!user}>
