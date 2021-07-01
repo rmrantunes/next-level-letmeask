@@ -1,0 +1,41 @@
+import RoomCode from "components/RoomCode";
+import Button from "components/Button";
+
+import logoImg from "assets/logo.svg";
+
+import "styles/header.scss";
+
+type HeaderProps = {
+  onEndRoom?: () => void | Promise<void>;
+  onSignOut: () => void | Promise<void>;
+  roomId: string;
+  isAdmin?: boolean;
+};
+
+const Header = (props: HeaderProps) => {
+  return (
+    <header>
+      <div className="header-content">
+        <img src={logoImg} alt="Letmeask" />
+
+        <div>
+          <RoomCode code={props.roomId} />
+          {props.isAdmin && (
+            <Button isOutlined onClick={props.onEndRoom}>
+              Encerrar sala
+            </Button>
+          )}
+          <button
+            aria-label="Sair da plataforma"
+            className="sign-out"
+            onClick={props.onSignOut}
+          >
+            Sair
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
