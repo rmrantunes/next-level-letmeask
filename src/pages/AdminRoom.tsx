@@ -18,9 +18,8 @@ type AdminRoomParams = { id: string };
 const AdminRoom = () => {
   const params = useParams<AdminRoomParams>();
   const roomId = params.id;
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
   const { questions, title, isAdmin } = useRoom(roomId);
-
   const history = useHistory();
 
   async function handleRemoveQuestion(questionId: string) {
@@ -63,6 +62,7 @@ const AdminRoom = () => {
         onEndRoom={handleEndRoom}
         onSignOut={handleSignOut}
         isAdmin={isAdmin}
+        isLoggedIn={Boolean(user)}
       />
 
       <main>
