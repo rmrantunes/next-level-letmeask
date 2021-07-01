@@ -4,9 +4,11 @@ import { ThemeProvider } from "styled-components";
 import { AuthContextProvider } from "contexts/AuthContext";
 import Routes from "routes/routes";
 
+import theme from "styles/theme";
+
 function App() {
   return (
-    <ThemeProvider theme={{}}>
+    <ThemeProvider theme={theme}>
       <AuthContextProvider>
         <Routes />
       </AuthContextProvider>
