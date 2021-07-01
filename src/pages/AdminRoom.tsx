@@ -86,28 +86,34 @@ const AdminRoom = () => {
               isAnswered={question.isAnswered}
               isHighlighted={question.isHighlighted}
             >
-              {!question.isAnswered && (
+              {isAdmin && (
                 <>
+                  {!question.isAnswered && (
+                    <>
+                      <button
+                        aria-label="Marcar pergunta como respondida"
+                        onClick={() =>
+                          handleCheckQuestionAsAnswered(question.id)
+                        }
+                      >
+                        <img src={checkImg} alt="Ícone de check" />
+                      </button>
+                      <button
+                        aria-label="Dar destaque à pergunta"
+                        onClick={() => handleHighlightQuestion(question.id)}
+                      >
+                        <img src={answerImg} alt="Ícone de balão de texto" />
+                      </button>
+                    </>
+                  )}
                   <button
-                    aria-label="Marcar pergunta como respondida"
-                    onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                    aria-label="Remover pergunta"
+                    onClick={() => handleRemoveQuestion(question.id)}
                   >
-                    <img src={checkImg} alt="Ícone de check" />
-                  </button>
-                  <button
-                    aria-label="Dar destaque à pergunta"
-                    onClick={() => handleHighlightQuestion(question.id)}
-                  >
-                    <img src={answerImg} alt="Ícone de balão de texto" />
+                    <img src={deleteImg} alt="Ícone de lixeira" />
                   </button>
                 </>
               )}
-              <button
-                aria-label="Remover pergunta"
-                onClick={() => handleRemoveQuestion(question.id)}
-              >
-                <img src={deleteImg} alt="Ícone de lixeira" />
-              </button>
             </Question>
           ))}
         </div>
