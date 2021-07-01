@@ -30,7 +30,7 @@ export function useRoom(roomId: string) {
   const [title, setTitle] = useState("");
   const [room, setRoom] = useState<any>();
 
-  const isAuthor = useMemo(() => user?.id === room?.authorId, [user, room]);
+  const isAdmin = useMemo(() => user?.id === room?.authorId, [user, room]);
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
@@ -67,5 +67,5 @@ export function useRoom(roomId: string) {
     });
   }, [roomId, user, history]);
 
-  return { questions, title, room, isAuthor };
+  return { questions, title, room, isAdmin };
 }
