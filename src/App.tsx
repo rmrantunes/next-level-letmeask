@@ -1,13 +1,16 @@
 import "services/firebase";
 
+import { ThemeProvider } from "styled-components";
 import { AuthContextProvider } from "contexts/AuthContext";
 import Routes from "routes/routes";
 
 function App() {
   return (
-    <AuthContextProvider>
-      <Routes />
-    </AuthContextProvider>
+    <ThemeProvider theme={{}}>
+      <AuthContextProvider>
+        <Routes />
+      </AuthContextProvider>
+    </ThemeProvider>
   );
 }
 
