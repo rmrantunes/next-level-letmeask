@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "hooks/useAuth";
 import { useRoom } from "hooks/useRoom";
+import { database } from "services/firebase";
 
 import Button from "components/Button";
-import RoomCode from "components/RoomCode";
-import logoImg from "assets/logo.svg";
+import Question from "components/Question";
+import Header from "components/Header";
 
 import "styles/room.scss";
-import { database } from "services/firebase";
-import Question from "components/Question";
 
 type RoomParams = { id: string };
 
 const Room = () => {
-  const { user } = useAuth();
+  const { user, signOut, signInWithGoogle } = useAuth();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const { questions, title } = useRoom(roomId);
@@ -52,15 +51,18 @@ const Room = () => {
     });
   }
 
+  function handleSignOut() {
+    signOut();
+    window.location.reload();
+  }
+
   return (
     <div id="page-room">
-      <header>
-        <div className="header-content">
-          <img src={logoImg} alt="Letmeask" />
-
-          <RoomCode code={roomId} />
-        </div>
-      </header>
+      <Header
+        roomId={roomId}
+        isLoggedIn={Boolean(user)}
+        onSignOut={handleSignOut}
+      />
 
       <main>
         <div className="room-title">
@@ -112,9 +114,13 @@ const Room = () => {
                   className={`like-button ${question.likeId ? "liked" : ""}`}
                   type="button"
                   aria-label="Marcar como gostei"
-                  onClick={() =>
-                    handleLikeQuestion(question.id, question.likeId)
-                  }
+                  onClick={() => {
+                    if (!Boolean(user)) {
+                      signInWithGoogle();
+                      return;
+                    }
+                    handleLikeQuestion(question.id, question.likeId);
+                  }}
                 >
                   {question.likeCount > 0 && <span>{question.likeCount}</span>}
                   <svg
