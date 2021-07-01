@@ -32,6 +32,19 @@ export function useRoom(roomId: string) {
 
   const isAdmin = useMemo(() => user?.id === room?.authorId, [user, room]);
 
+  const sortedQuestions = useMemo(() => {
+    return [...questions]
+      .sort((a, b) => b.likeCount - a.likeCount)
+      .sort((a, b) => {
+        if (a.isHighlighted && !b.isHighlighted) return -1;
+        return 0;
+      })
+      .sort((a, b) => {
+        if (!a.isAnswered && b.isAnswered) return -1;
+        return 1;
+      });
+  }, [questions]);
+
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 
@@ -67,5 +80,5 @@ export function useRoom(roomId: string) {
     });
   }, [roomId, user, history]);
 
-  return { questions, title, room, isAdmin };
+  return { questions: sortedQuestions, title, room, isAdmin };
 }
