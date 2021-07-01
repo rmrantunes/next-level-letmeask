@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { database } from "services/firebase";
 import { useAuth } from "./useAuth";
@@ -29,6 +29,9 @@ export function useRoom(roomId: string) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [title, setTitle] = useState("");
   const [room, setRoom] = useState<any>();
+
+  const isAuthor = useMemo(() => user?.id === room?.authorId, [user, room]);
+
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 
@@ -64,5 +67,5 @@ export function useRoom(roomId: string) {
     });
   }, [roomId, user, history]);
 
-  return { questions, title, room };
+  return { questions, title, room, isAuthor };
 }
