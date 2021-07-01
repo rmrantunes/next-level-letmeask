@@ -33,8 +33,15 @@ const Home = () => {
       return;
     }
 
-    if (roomRef.val().endedAt) {
+    const room = roomRef.val();
+
+    if (room.endedAt) {
       alert("Room already closed");
+      return;
+    }
+
+    if (user?.id === room.authorId) {
+      history.push(`/admin/rooms/${roomCode}`);
       return;
     }
 
