@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import RoomCode from "components/RoomCode";
 import Button from "components/Button";
 
@@ -17,7 +19,9 @@ const Header = (props: HeaderProps) => {
   return (
     <header>
       <div className="header-content">
-        <img src={logoImg} alt="Letmeask" />
+        <Link to="/" aria-label="Ir para a página inicial">
+          <img src={logoImg} alt="Letmeask" />
+        </Link>
 
         <div>
           <RoomCode code={props.roomId} />
