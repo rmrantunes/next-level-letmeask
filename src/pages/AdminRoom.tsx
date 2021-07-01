@@ -9,6 +9,8 @@ import Question from "components/Question";
 
 import logoImg from "assets/logo.svg";
 import deleteImg from "assets/delete.svg";
+import checkImg from "assets/check.svg";
+import answerImg from "assets/answer.svg";
 
 import "styles/room.scss";
 
@@ -34,6 +36,18 @@ const AdminRoom = () => {
     });
 
     history.push("/");
+  }
+
+  async function handleCheckQuestionAsAnswered(questionId: string) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isAnswered: true,
+    });
+  }
+
+  async function handleHighlightQuestion(questionId: string) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isHighlighted: true,
+    });
   }
 
   return (
@@ -69,7 +83,25 @@ const AdminRoom = () => {
               key={question.id}
               content={question.content}
               author={question.author}
+              isAnswered={question.isAnswered}
+              isHighlighted={question.isHighlighted}
             >
+              {!question.isAnswered && (
+                <>
+                  <button
+                    aria-label="Marcar pergunta como respondida"
+                    onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                  >
+                    <img src={checkImg} alt="Ícone de check" />
+                  </button>
+                  <button
+                    aria-label="Dar destaque à pergunta"
+                    onClick={() => handleHighlightQuestion(question.id)}
+                  >
+                    <img src={answerImg} alt="Ícone de balão de texto" />
+                  </button>
+                </>
+              )}
               <button
                 aria-label="Remover pergunta"
                 onClick={() => handleRemoveQuestion(question.id)}
