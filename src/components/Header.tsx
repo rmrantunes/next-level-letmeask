@@ -10,6 +10,7 @@ type HeaderProps = {
   onSignOut: () => void | Promise<void>;
   roomId: string;
   isAdmin?: boolean;
+  isLoggedIn: boolean;
 };
 
 const Header = (props: HeaderProps) => {
@@ -25,13 +26,15 @@ const Header = (props: HeaderProps) => {
               Encerrar sala
             </Button>
           )}
-          <button
-            aria-label="Sair da plataforma"
-            className="sign-out"
-            onClick={props.onSignOut}
-          >
-            Sair
-          </button>
+          {props.isLoggedIn && (
+            <button
+              aria-label="Sair da plataforma"
+              className="sign-out"
+              onClick={props.onSignOut}
+            >
+              Sair
+            </button>
+          )}
         </div>
       </div>
     </header>
