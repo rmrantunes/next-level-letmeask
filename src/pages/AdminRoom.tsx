@@ -92,6 +92,7 @@ const AdminRoom = () => {
                     <>
                       <button
                         aria-label="Marcar pergunta como respondida"
+                        title="Marcar pergunta como respondida"
                         onClick={() =>
                           handleCheckQuestionAsAnswered(question.id)
                         }
@@ -100,6 +101,7 @@ const AdminRoom = () => {
                       </button>
                       <button
                         aria-label="Dar destaque à pergunta"
+                        title="Dar destaque à pergunta"
                         onClick={() => handleHighlightQuestion(question.id)}
                       >
                         <img src={answerImg} alt="Ícone de balão de texto" />
@@ -108,6 +110,7 @@ const AdminRoom = () => {
                   )}
                   <button
                     aria-label="Remover pergunta"
+                    title="Remover pergunta"
                     onClick={() => handleRemoveQuestion(question.id)}
                   >
                     <img src={deleteImg} alt="Ícone de lixeira" />

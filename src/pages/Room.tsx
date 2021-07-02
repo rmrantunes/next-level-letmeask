@@ -114,7 +114,12 @@ const Room = () => {
                 <button
                   className={`like-button ${question.likeId ? "liked" : ""}`}
                   type="button"
-                  aria-label="Marcar como gostei"
+                  aria-label={` ${
+                    question.likeId ? "Desmarcar" : "Marcar"
+                  } como gostei | ${question.likeCount} pessoas gostaram`}
+                  title={` ${
+                    question.likeId ? "Desmarcar" : "Marcar"
+                  } como gostei | ${question.likeCount} pessoas gostaram`}
                   onClick={() => {
                     if (!Boolean(user)) {
                       signInWithGoogle();
