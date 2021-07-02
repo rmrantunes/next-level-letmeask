@@ -6,6 +6,7 @@ import { database } from "services/firebase";
 
 import Question from "components/Question";
 import Header from "components/Header";
+import RoomTitle from "components/RoomTitle";
 
 import deleteImg from "assets/delete.svg";
 import checkImg from "assets/check.svg";
@@ -68,16 +69,7 @@ const AdminRoom = () => {
       />
 
       <main>
-        <div className="room-title">
-          <h1>Sala: {title}</h1>
-
-          {questions.length !== 0 && (
-            <span>
-              {questions.length}{" "}
-              {questions.length > 1 ? "perguntas" : "pergunta"}
-            </span>
-          )}
-        </div>
+        <RoomTitle title={title} questionQuantity={questions.length} />
 
         <QuestionList>
           {questions.map((question) => (

@@ -7,6 +7,7 @@ import { database } from "services/firebase";
 import Button from "components/Button";
 import Question from "components/Question";
 import Header from "components/Header";
+import RoomTitle from "components/RoomTitle";
 
 import { QuestionList } from "components/Question/styles";
 
@@ -67,16 +68,7 @@ const Room = () => {
       />
 
       <main>
-        <div className="room-title">
-          <h1>Sala: {title}</h1>
-
-          {questions.length !== 0 && (
-            <span>
-              {questions.length}{" "}
-              {questions.length > 1 ? "perguntas" : "pergunta"}
-            </span>
-          )}
-        </div>
+        <RoomTitle title={title} questionQuantity={questions.length} />
 
         <form onSubmit={handleSendNewQuestion}>
           <textarea
