@@ -3,12 +3,11 @@ import { useHistory } from "react-router-dom";
 import { useAuth } from "hooks/useAuth";
 import { database } from "services/firebase";
 
-import googleIconImg from "assets/google-icon.svg";
 
-// import "styles/auth.scss";
 import Button from "components/Button";
 import TextField from "components/TextField";
 import Auth from "components/Auth";
+import GoogleIcon from "components/GoogleIcon";
 
 const Home = () => {
   const history = useHistory();
@@ -50,8 +49,8 @@ const Home = () => {
   return (
     <Auth>
       <Button bgColor="google" onClick={handleCreateRoom}>
-        <img src={googleIconImg} alt="Logo do Google" />
-        Crie sua sala com o google
+        <GoogleIcon />
+        Crie sua sala com o Google
       </Button>
 
       <div className="separator">Ou entre em uma sala</div>
