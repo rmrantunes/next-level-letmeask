@@ -2,6 +2,7 @@ import { useThemeMode } from "hooks/useThemeMode";
 import { DefaultTheme } from "styled-components";
 import Sun from "./Sun";
 import Moon from "./Moon";
+import { SVGAttributes } from "react";
 
 const IconVariants = {
   Sun,
@@ -11,23 +12,23 @@ const IconVariants = {
 export type AbstractIconProps = {
   stroke?: string;
   fill?: string;
-};
+} & SVGAttributes<HTMLOrSVGElement>;
 
 type IconProps = {
   stroke?: keyof DefaultTheme["colors"];
   fill?: keyof DefaultTheme["colors"];
   variant: keyof typeof IconVariants;
-};
+} & SVGAttributes<HTMLOrSVGElement>;
 
-const Icon = (props: IconProps) => {
+const Icon = ({ stroke, fill, variant, ...props }: IconProps) => {
   const { theme } = useThemeMode();
 
-  const IconVariant = IconVariants[props.variant];
+  const IconVariant = IconVariants[variant];
 
-  const strokeColor = props.stroke && theme.colors[props.stroke];
-  const fillColor = props.fill && theme.colors[props.fill];
+  const strokeColor = stroke && theme.colors[stroke];
+  const fillColor = fill && theme.colors[fill];
 
-  return <IconVariant stroke={strokeColor} fill={fillColor} />;
+  return <IconVariant stroke={strokeColor} fill={fillColor} {...props} />;
 };
 
 export default Icon;

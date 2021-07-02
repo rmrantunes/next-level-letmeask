@@ -1,15 +1,16 @@
 import { AbstractIconProps } from ".";
 
-const Moon = (props: AbstractIconProps) => {
+const Moon = ({ stroke, fill, ...props }: AbstractIconProps) => {
   return (
     <svg
       className="w-6 h-6"
       data-darkreader-inline-fill=""
       data-darkreader-inline-stroke=""
       fill="none"
-      stroke={props.stroke || "currentColor"}
+      stroke={stroke || "currentColor"}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         strokeLinecap="round"
