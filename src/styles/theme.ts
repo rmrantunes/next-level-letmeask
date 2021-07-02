@@ -1,4 +1,5 @@
 const theme = {
+  mode: "light",
   colors: {
     bw1: "#29292E",
     bw2: "#737380",
@@ -14,6 +15,7 @@ const theme = {
     danger: "#E73F5D",
     google: "#ea4335",
     pink: "#E559F9",
+    highlight: "#f4f0ff",
 
     shadow: "rgba(0,0,0,0.04)",
   },
@@ -72,6 +74,7 @@ const theme = {
 
 export const darkTheme = {
   ...theme,
+  mode: "dark",
   colors: {
     ...theme.colors,
     bw1: "#FFFFFF",
