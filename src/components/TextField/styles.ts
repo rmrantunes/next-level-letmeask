@@ -4,8 +4,13 @@ const textFieldMutualStyles = {
   ring: (theme: DefaultTheme) => css`
     outline: none;
     background: ${theme.colors.bw5};
-    border: 1px solid ${theme.colors.bw2};
+    border: 1px solid ${theme.colors.bw4};
     color: ${theme.colors.bw1};
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: ${theme.colors.bw1};
+    }
 
     &:focus {
       border-color: transparent;
