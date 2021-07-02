@@ -9,10 +9,12 @@ import Question from "components/Question";
 import Header from "components/Header";
 import RoomTitle from "components/RoomTitle";
 import User from "components/User";
+import TextField from "components/TextField";
+import Container from "components/Container";
+
+import * as S from "components/Room";
 
 import { QuestionList } from "components/Question/styles";
-
-import "styles/room.scss";
 
 type RoomParams = { id: string };
 
@@ -68,17 +70,18 @@ const Room = () => {
         onSignOut={handleSignOut}
       />
 
-      <main>
+      <Container>
         <RoomTitle title={title} questionQuantity={questions.length} />
 
         <form onSubmit={handleSendNewQuestion}>
-          <textarea
+          <TextField
+            as="textarea"
             placeholder="O que você quer perguntar?"
             value={newQuestion}
             onChange={(event) => setNewQuestion(event.target.value)}
           />
 
-          <div className="form-footer">
+          <S.FormFooter>
             {user ? (
               <User avatar={user.avatar} name={user.name} />
             ) : (
@@ -90,7 +93,7 @@ const Room = () => {
             <Button type="submit" disabled={!user}>
               Enviar pergunta
             </Button>
-          </div>
+          </S.FormFooter>
         </form>
 
         <QuestionList>
@@ -141,7 +144,7 @@ const Room = () => {
             </Question>
           ))}
         </QuestionList>
-      </main>
+      </Container>
     </div>
   );
 };

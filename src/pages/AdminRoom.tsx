@@ -7,6 +7,7 @@ import { database } from "services/firebase";
 import Question from "components/Question";
 import Header from "components/Header";
 import RoomTitle from "components/RoomTitle";
+import Container from "components/Container";
 
 import deleteImg from "assets/delete.svg";
 import checkImg from "assets/check.svg";
@@ -14,7 +15,7 @@ import answerImg from "assets/answer.svg";
 
 import { QuestionList } from "components/Question/styles";
 
-import "styles/room.scss";
+// import "styles/room.scss";
 
 type AdminRoomParams = { id: string };
 
@@ -68,7 +69,7 @@ const AdminRoom = () => {
         isLoggedIn={Boolean(user)}
       />
 
-      <main>
+      <Container>
         <RoomTitle title={title} questionQuantity={questions.length} />
 
         <QuestionList>
@@ -114,7 +115,7 @@ const AdminRoom = () => {
             </Question>
           ))}
         </QuestionList>
-      </main>
+      </Container>
     </div>
   );
 };
