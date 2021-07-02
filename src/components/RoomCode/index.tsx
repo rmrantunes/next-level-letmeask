@@ -1,6 +1,6 @@
 import copyImg from "assets/copy.svg";
 
-import "styles/room-code.scss";
+import * as S from "./styles";
 
 type RoomCodeProps = {
   code: string;
@@ -12,7 +12,7 @@ const RoomCode = (props: RoomCodeProps) => {
   }
 
   return (
-    <button
+    <S.Wrapper
       onClick={copyRoomCodeToClipboard}
       className="room-code"
       aria-label="Copiar link da sala"
@@ -22,7 +22,7 @@ const RoomCode = (props: RoomCodeProps) => {
         <img src={copyImg} alt="Ícone de copiar" />
       </div>
       <span>Sala: {props.code}</span>
-    </button>
+    </S.Wrapper>
   );
 };
 
