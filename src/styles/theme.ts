@@ -18,7 +18,7 @@ const theme = {
   font: {
     base: "400",
     medium: "500",
-    semibold: "700",
+    bold: "700",
     poppins: "'Poppins', sans-serif",
     roboto: "'Roboto', sans-serif",
   },
@@ -49,6 +49,7 @@ const theme = {
     "48": "12rem",
     "56": "14rem",
     "64": "16rem",
+    "80": "20rem",
     px: "1px",
     xs: "20rem",
     sm: "24rem",
