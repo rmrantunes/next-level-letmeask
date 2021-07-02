@@ -7,6 +7,7 @@ import googleIconImg from "assets/google-icon.svg";
 
 // import "styles/auth.scss";
 import Button from "components/Button";
+import TextField from "components/TextField";
 import Auth from "components/Auth";
 
 const Home = () => {
@@ -56,7 +57,7 @@ const Home = () => {
       <div className="separator">Ou entre em uma sala</div>
 
       <form onSubmit={handleJoinRoom}>
-        <input
+        <TextField
           type="text"
           placeholder="Digite o código da sala"
           value={roomCode}

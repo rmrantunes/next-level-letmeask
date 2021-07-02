@@ -4,6 +4,7 @@ import { useAuth } from "hooks/useAuth";
 import { Link, useHistory } from "react-router-dom";
 
 import Button from "components/Button";
+import TextField from "components/TextField";
 import Auth from "components/Auth";
 
 const NewRoom = () => {
@@ -32,7 +33,7 @@ const NewRoom = () => {
       <h2>Criar uma nova sala</h2>
 
       <form onSubmit={handleCreateRoom}>
-        <input
+        <TextField
           type="text"
           placeholder="Nome da sala"
           onChange={(event) => setNewRoom(event.target.value)}
