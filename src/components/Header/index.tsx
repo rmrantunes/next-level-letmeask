@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 
 import RoomCode from "components/RoomCode";
 import Button from "components/Button";
-
-import logoImg from "assets/logo.svg";
+import Logo from "components/Logo";
 
 import * as S from "./styles";
 
@@ -20,7 +19,7 @@ const Header = (props: HeaderProps) => {
     <S.Header>
       <S.HeaderContent>
         <Link to="/" aria-label="Ir para a página inicial">
-          <img src={logoImg} alt="Letmeask" />
+          <Logo />
         </Link>
 
         <S.HeaderNavigation>
