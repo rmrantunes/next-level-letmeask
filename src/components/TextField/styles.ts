@@ -1,23 +1,21 @@
 import styled, { css, DefaultTheme } from "styled-components";
 
-const textFieldMutualStyles = {
-  ring: (theme: DefaultTheme) => css`
-    outline: none;
-    background: ${theme.colors.bw5};
-    border: 1px solid ${theme.colors.bw4};
-    color: ${theme.colors.bw1};
-    transition: all 0.2s;
+const textFieldMutualStyles = (theme: DefaultTheme) => css`
+  outline: none;
+  background: ${theme.colors.bw5};
+  border: 1px solid ${theme.colors.bw4};
+  color: ${theme.colors.bw1};
+  transition: all 0.2s;
 
-    &:hover {
-      border-color: ${theme.colors.bw1};
-    }
+  &:hover {
+    border-color: ${theme.colors.bw1};
+  }
 
-    &:focus {
-      border-color: transparent;
-      box-shadow: inset 0 0 0 2px ${theme.colors.purple};
-    }
-  `,
-};
+  &:focus {
+    border-color: transparent;
+    box-shadow: inset 0 0 0 2px ${theme.colors.purple};
+  }
+`;
 
 export const Input = styled.input`
   ${({ theme }) => css`
@@ -25,7 +23,7 @@ export const Input = styled.input`
     border-radius: ${theme.rounded.lg};
     padding: 0 ${theme.sizes[4]};
 
-    ${textFieldMutualStyles.ring(theme)}
+    ${textFieldMutualStyles(theme)}
   `}
 `;
 
@@ -40,6 +38,6 @@ export const Textarea = styled.textarea`
     resize: vertical;
     min-height: ${theme.sizes[32]};
 
-    ${textFieldMutualStyles.ring(theme)}
+    ${textFieldMutualStyles(theme)}
   `}
 `;
