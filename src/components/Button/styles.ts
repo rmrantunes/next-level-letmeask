@@ -20,7 +20,7 @@ export const Wrapper = styled.button<ButtonSCProps>`
   ${({ theme, isOutlined, bgColor }) => css`
     height: ${theme.sizes[12]};
     border-radius: ${theme.rounded.lg};
-    font-weight: ${theme.font.semibold};
+    font-weight: ${theme.font.medium};
     background: ${theme.colors[bgColor || "purple"]};
     color: ${theme.colors.white};
     padding: 0 ${theme.sizes[8]};
