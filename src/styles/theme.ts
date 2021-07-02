@@ -5,11 +5,16 @@ const theme = {
     bw3: "#A8A8B3",
     bw4: "#DBDCDD",
     bw5: "#FFFFFF",
+    black: "#29292E",
+    grayDark: "#737380",
+    gray: "#A8A8B3",
+    grayLight: "#DBDCDD",
+    white: "#FFFFFF",
     purple: "#835AFD",
     danger: "#E73F5D",
     google: "#ea4335",
-    pinkDark: "#E559F9",
-    pinkLight: "#D67EE2",
+    pink: "#E559F9",
+
     shadow: "rgba(0,0,0,0.04)",
   },
   shadow: {
@@ -74,6 +79,10 @@ export const darkTheme = {
     bw3: "#A8A8B3",
     bw4: "#737380",
     bw5: "#29292E",
+    purple: "#a98cfe",
+    google: "#ef6e63",
+    danger: "#ed6c83",
+    pink: "#D67EE2",
   },
 } as const;
 

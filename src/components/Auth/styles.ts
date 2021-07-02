@@ -123,7 +123,7 @@ export const AuthFormSectionContent = styled.div`
       margin-top: 1rem;
 
       a {
-        color: ${theme.colors.pinkDark};
+        color: ${theme.colors.pink};
       }
     }
 
