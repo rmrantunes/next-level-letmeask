@@ -1,16 +1,16 @@
 const theme = {
   colors: {
-    black: "#29292E",
-    shadow: "rgba(0,0,0,0.04)",
+    bw1: "#29292E",
+    bw2: "#737380",
+    bw3: "#A8A8B3",
+    bw4: "#DBDCDD",
+    bw5: "#FFFFFF",
     purple: "#835AFD",
     danger: "#E73F5D",
     google: "#ea4335",
-    grayDark: "#737380",
-    grayMedium: "#A8A8B3",
-    grayLight: "#DBDCDD",
     pinkDark: "#E559F9",
     pinkLight: "#D67EE2",
-    white: "#FFFFFF",
+    shadow: "rgba(0,0,0,0.04)",
   },
   shadow: {
     sm: "0 2px 12px 0 rgba(0,0,0,0.04)",
@@ -65,6 +65,20 @@ const theme = {
   },
 } as const;
 
+export const darkTheme = {
+  ...theme,
+  colors: {
+    ...theme.colors,
+    bw1: "#FFFFFF",
+    bw2: "#DBDCDD",
+    bw3: "#A8A8B3",
+    bw4: "#737380",
+    bw5: "#29292E",
+  },
+} as const;
+
 export default theme;
 
 export type Theme = typeof theme;
+
+export type DarkTheme = typeof darkTheme;
