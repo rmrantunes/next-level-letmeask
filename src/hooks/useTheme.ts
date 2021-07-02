@@ -16,7 +16,12 @@ function useTheme(props: UseThemeProps) {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
   }, []);
 
-  return { theme: props[theme] as DefaultTheme, setTheme, toggleTheme };
+  return {
+    theme: props[theme] as DefaultTheme,
+    mode: theme,
+    setTheme,
+    toggleTheme,
+  };
 }
 
 export default useTheme;
