@@ -3,6 +3,9 @@ import styled, { css, DefaultTheme } from "styled-components";
 const textFieldMutualStyles = {
   ring: (theme: DefaultTheme) => css`
     outline: none;
+    background: ${theme.colors.bw5};
+    border: 1px solid ${theme.colors.bw2};
+    color: ${theme.colors.bw1};
 
     &:focus {
       border-color: transparent;
@@ -16,8 +19,6 @@ export const Input = styled.input`
     height: ${theme.sizes[12]};
     border-radius: ${theme.rounded.lg};
     padding: 0 ${theme.sizes[4]};
-    background: ${theme.colors.bw5};
-    border: 1px solid ${theme.colors.bw2};
 
     ${textFieldMutualStyles.ring(theme)}
   `}
@@ -29,7 +30,7 @@ export const Textarea = styled.textarea`
     border: 0;
     border-radius: ${theme.rounded.lg};
     padding: ${theme.sizes[4]};
-    background: #fefefe;
+    background: ${theme.colors.bw5};
     box-shadow: ${theme.shadow.sm}
     resize: vertical;
     min-height: ${theme.sizes[32]};

@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import * as User from "components/User/styles";
+
 export const QuestionList = styled.div`
   ${({ theme }) => css`
     padding: ${theme.sizes[8]} 0;
@@ -10,22 +12,29 @@ export const QuestionList = styled.div`
 
 export const Question = styled.div`
   ${({ theme }) => css`
-    background: #fefefe;
+    background: ${theme.colors.bw5};
+    border: 1px solid ${theme.colors.bw4};
     border-radius: 0.5rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     padding: 1.4rem;
 
     &.highlighted {
-      background: #f4f0ff;
+      background: ${theme.mode === "light" && theme.colors.highlight};
+      font-weight: ${theme.font.medium};
       border: 1px solid ${theme.colors.purple};
 
-      footer .user-info span {
-        color: ${theme.colors.bw1};
+      p {
+        color: ${theme.mode === "dark" && theme.colors.purple};
+      }
+
+      ${User.Username} {
+        color: ${theme.mode === "dark" && theme.colors.purple};
       }
     }
 
     &.answered {
       background: ${theme.colors.bw4};
+      border: none;
     }
 
     p {
@@ -75,11 +84,15 @@ export const QuestionInteractionButtons = styled.div`
       background: transparent;
       cursor: pointer;
       transition: filter 0.2s;
+      color: ${theme.colors.bw3};
+
+      svg path {
+        stroke: ${theme.colors.bw3};
+      }
 
       &.like-button {
         display: flex;
         align-items: flex-end;
-        color: ${theme.colors.bw2};
         gap: ${theme.sizes[2]};
 
         &.liked {
