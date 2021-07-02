@@ -16,7 +16,7 @@ export const Hero = styled.aside`
   ${({ theme }) => css`
     flex: 5;
     background-color: ${theme.colors.purple};
-    color: ${theme.colors.white};
+    color: ${theme.colors.bw5};
 
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ export const Hero = styled.aside`
       font-size: ${theme.sizes[6]};
       line-height: ${theme.sizes[2]};
       margin-top: ${theme.sizes[4]};
-      color: ${theme.colors.white};
+      color: ${theme.colors.bw5};
     }
 
     ${media.lessThan("large")`
@@ -103,8 +103,8 @@ export const AuthFormSectionContent = styled.div`
         height: 3rem;
         border-radius: 0.5rem;
         padding: 0 1rem;
-        background: ${theme.colors.white};
-        border: 1px solid ${theme.colors.grayMedium};
+        background: ${theme.colors.bw5};
+        border: 1px solid ${theme.colors.bw3};
       }
 
       button {
@@ -119,7 +119,7 @@ export const AuthFormSectionContent = styled.div`
 
     p {
       font-size: ${theme.text.sm};
-      color: ${theme.colors.grayDark};
+      color: ${theme.colors.bw2};
       margin-top: 1rem;
 
       a {
@@ -129,7 +129,7 @@ export const AuthFormSectionContent = styled.div`
 
     .separator {
       font-size: ${theme.text.sm};
-      color: ${theme.colors.grayMedium};
+      color: ${theme.colors.bw3};
 
       margin: ${theme.sizes[8]} 0;
       display: flex;
@@ -139,7 +139,7 @@ export const AuthFormSectionContent = styled.div`
         content: "";
         flex: 1;
         height: 1px;
-        background: ${theme.colors.grayMedium};
+        background: ${theme.colors.bw3};
         margin-right: 1rem;
       }
 
@@ -147,7 +147,7 @@ export const AuthFormSectionContent = styled.div`
         content: "";
         flex: 1;
         height: 1px;
-        background: ${theme.colors.grayMedium};
+        background: ${theme.colors.bw3};
         margin-left: ${theme.sizes[4]};
       }
     }

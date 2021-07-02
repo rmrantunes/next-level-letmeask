@@ -20,16 +20,16 @@ export const Question = styled.div`
       border: 1px solid ${theme.colors.purple};
 
       footer .user-info span {
-        color: ${theme.colors.black};
+        color: ${theme.colors.bw1};
       }
     }
 
     &.answered {
-      background: ${theme.colors.grayLight};
+      background: ${theme.colors.bw4};
     }
 
     p {
-      color: ${theme.colors.black};
+      color: ${theme.colors.bw1};
     }
   `}
 `;
@@ -62,7 +62,7 @@ export const QuestionUserInfo = styled.footer`
 
     span {
       margin-left: ${theme.sizes[2]};
-      color: ${theme.colors.grayDark};
+      color: ${theme.colors.bw2};
       font-size: ${theme.text.sm};
     }
   `}
@@ -79,7 +79,7 @@ export const QuestionInteractionButtons = styled.div`
       &.like-button {
         display: flex;
         align-items: flex-end;
-        color: ${theme.colors.grayDark};
+        color: ${theme.colors.bw2};
         gap: ${theme.sizes[2]};
 
         &.liked {

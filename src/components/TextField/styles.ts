@@ -16,8 +16,8 @@ export const Input = styled.input`
     height: ${theme.sizes[12]};
     border-radius: ${theme.rounded.lg};
     padding: 0 ${theme.sizes[4]};
-    background: ${theme.colors.white};
-    border: 1px solid ${theme.colors.grayDark};
+    background: ${theme.colors.bw5};
+    border: 1px solid ${theme.colors.bw2};
 
     ${textFieldMutualStyles.ring(theme)}
   `}

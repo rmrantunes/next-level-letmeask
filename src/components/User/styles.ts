@@ -16,7 +16,7 @@ export const Avatar = styled.img`
 
 export const Username = styled.span`
   ${({ theme }) => css`
-    color: ${theme.colors.black};
+    color: ${theme.colors.bw1};
     font-weight: ${theme.font.medium};
     font-size: ${theme.text.sm};
   `}

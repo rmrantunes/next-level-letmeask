@@ -5,7 +5,7 @@ const buttonSCModifiers = {
     theme: DefaultTheme,
     bgColor?: keyof DefaultTheme["colors"]
   ) => css`
-    background: ${theme.colors.white};
+    background: ${theme.colors.bw5};
     border: 1px solid ${theme.colors[bgColor || "purple"]};
     color: ${theme.colors.purple};
   `,
@@ -22,7 +22,7 @@ export const Wrapper = styled.button<ButtonSCProps>`
     border-radius: ${theme.rounded.lg};
     font-weight: ${theme.font.medium};
     background: ${theme.colors[bgColor || "purple"]};
-    color: ${theme.colors.white};
+    color: ${theme.colors.bw5};
     padding: 0 ${theme.sizes[8]};
 
     display: flex;

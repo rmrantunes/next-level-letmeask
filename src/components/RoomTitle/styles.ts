@@ -12,7 +12,7 @@ export const Title = styled.h1`
   ${({ theme }) => css`
     font-family: ${theme.font.poppins};
     font-size: 2.5rem;
-    color: ${theme.colors.black};
+    color: ${theme.colors.bw1};
   `}
 `;
 
@@ -22,7 +22,7 @@ export const QuestionQuantity = styled.span`
     background: ${theme.colors.purple};
     border-radius: ${theme.rounded.full};
     padding: ${theme.sizes[2]} ${theme.sizes[4]};
-    color: ${theme.colors.white};
+    color: ${theme.colors.bw5};
     font-weight: ${theme.font.medium};
     font-size: ${theme.text.sm};
   `}

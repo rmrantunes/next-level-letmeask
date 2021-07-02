@@ -9,7 +9,7 @@ export const FormFooter = styled.div`
 
     > span {
       font-size: ${theme.text.sm};
-      color: ${theme.colors.grayDark};
+      color: ${theme.colors.bw2};
       font-weight: ${theme.font.medium};
 
       button {
