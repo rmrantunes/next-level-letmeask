@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.h2`
+export const Wrapper = styled.div`
   ${({ theme }) => css`
     margin: ${theme.sizes[8]} 0 ${theme.sizes[10]};
     display: flex;
@@ -16,7 +16,7 @@ export const Title = styled.h1`
   `}
 `;
 
-export const QuestionQuantity = styled.h2`
+export const QuestionQuantity = styled.span`
   ${({ theme }) => css`
     margin-left: ${theme.sizes[4]};
     background: ${theme.colors.purple};
