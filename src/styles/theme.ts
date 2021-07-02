@@ -1,7 +1,7 @@
 const theme = {
   colors: {
     black: "#29292E",
-    shadow: "#050206",
+    shadow: "rgba(0,0,0,0.04)",
     purple: "#835AFD",
     danger: "#E73F5D",
     google: "#ea4335",
