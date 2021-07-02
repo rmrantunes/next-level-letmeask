@@ -8,6 +8,7 @@ import Button from "components/Button";
 import Question from "components/Question";
 import Header from "components/Header";
 import RoomTitle from "components/RoomTitle";
+import User from "components/User";
 
 import { QuestionList } from "components/Question/styles";
 
@@ -79,10 +80,7 @@ const Room = () => {
 
           <div className="form-footer">
             {user ? (
-              <div className="user-info">
-                <img src={user.avatar} alt={user.name} />
-                <span>{user.name}</span>
-              </div>
+              <User avatar={user.avatar} name={user.name} />
             ) : (
               <span>
                 Para enviar uma pergunta,{" "}

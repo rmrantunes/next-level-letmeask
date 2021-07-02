@@ -1,6 +1,8 @@
 import React from "react";
 import cx from "classnames";
 
+import User from "components/User";
+
 import * as S from "./styles";
 
 type QuestionProps = {
@@ -26,10 +28,7 @@ const Question = (props: QuestionProps) => {
     >
       <p className="content">{props.content}</p>
       <S.QuestionFooter>
-        <S.QuestionUserInfo className="user-info">
-          <img src={props.author.avatar} alt={props.author.name} />
-          <span>{props.author.name}</span>
-        </S.QuestionUserInfo>
+        <User name={props.author.name} avatar={props.author.avatar} />
         <S.QuestionInteractionButtons>
           {props.children}
         </S.QuestionInteractionButtons>
