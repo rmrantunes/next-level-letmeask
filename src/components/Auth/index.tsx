@@ -16,8 +16,10 @@ const Auth = (props: AuthProps) => {
           src={illustrationImg}
           alt="Ilustração simbolizando perguntas e respostas"
         />
-        <strong>Crie salas de Q&A</strong>
-        <p>Tire as dúvidas em tempo real</p>
+        <div>
+          <strong>Crie salas de Q&A</strong>
+          <p>Tire as dúvidas em tempo real</p>
+        </div>
       </S.Hero>
       <S.AuthFormSection>
         <S.AuthFormSectionContent>

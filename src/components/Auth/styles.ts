@@ -1,9 +1,14 @@
 import styled, { css } from "styled-components";
+import media from "styled-media-query";
 
 export const PageAuth = styled.div`
   ${() => css`
     display: flex;
     height: 100vh;
+
+    ${media.lessThan("large")`
+      flex-direction: column;
+    `}
   `}
 `;
 
@@ -16,6 +21,7 @@ export const Hero = styled.aside`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: ${theme.sizes[8]};
     padding: ${theme.sizes[32]} ${theme.sizes[20]};
 
     img {
@@ -25,7 +31,6 @@ export const Hero = styled.aside`
     strong {
       font: ${theme.font.bold} 2.25rem ${theme.font.poppins};
       line-height: ${theme.sizes[10]};
-      margin-top: ${theme.sizes[8]};
     }
 
     p {
@@ -34,6 +39,31 @@ export const Hero = styled.aside`
       margin-top: ${theme.sizes[4]};
       color: ${theme.colors.white};
     }
+
+    ${media.lessThan("large")`
+      flex: 1;
+      padding: ${theme.sizes[8]};
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      > img {
+        max-height: ${theme.sizes["32"]}
+      }
+
+      div {
+        margin-top: ${theme.sizes[2]};
+      }
+
+      strong {
+        font-size: ${theme.text["2lg"]};
+      }
+
+      p {
+        font-size: ${theme.text.base};
+        margin-top: ${theme.sizes[2]};
+      }
+    `}
   `}
 `;
 
