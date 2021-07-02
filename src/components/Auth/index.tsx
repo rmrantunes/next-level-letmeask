@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import illustrationImg from "assets/illustration.svg";
-import logoImg from "assets/logo.svg";
+
+import Logo from "components/Logo";
 
 import * as S from "./styles";
 
@@ -23,7 +24,7 @@ const Auth = (props: AuthProps) => {
       </S.Hero>
       <S.AuthFormSection>
         <S.AuthFormSectionContent>
-          <img src={logoImg} alt="Letmeask" />
+          <Logo />
           {props.children}
         </S.AuthFormSectionContent>
       </S.AuthFormSection>

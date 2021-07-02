@@ -87,7 +87,7 @@ export const AuthFormSectionContent = styled.div`
     align-items: stretch;
     text-align: center;
 
-    > img {
+    > svg {
       align-self: center;
       margin-bottom: ${theme.sizes[8]};
     }
