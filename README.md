@@ -13,18 +13,18 @@ Projeto da trilha de React do Next Level Week Together (6).
 
 As principais diferenças ao projeto na última aula são:
 
-#### Dark Mode
+### Dark Mode
 
 ![Dark Mode](public/screenshots/home-mobile.png)
 ![Logged User](public/screenshots/logged-user.png)
 
-#### Admin Room
+### Admin Room
 
 Proteção das ações que somente o administrador da sala pode executar para outros usuários.
 
 ![Admin Room](public/screenshots/not-admin-in-admin-room.png)
 
-#### Perguntas devidamente organizadas
+### Perguntas devidamente organizadas
 
 Primeiro vêm as perguntas `em destaque`, depois as perguntas `com mais likes`, e então as `já respondidas`.
 
