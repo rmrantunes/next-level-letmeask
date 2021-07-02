@@ -15,8 +15,11 @@ As principais diferenças ao projeto na última aula são:
 
 ### Dark Mode
 
-![Dark Mode](public/screenshots/home-mobile.png)
 ![Logged User](public/screenshots/logged-user.png)
+
+### Responsivo
+
+![Dark Mode](public/screenshots/home-mobile.png)
 
 ### Admin Room
 
