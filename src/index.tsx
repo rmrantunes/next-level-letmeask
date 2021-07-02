@@ -4,7 +4,6 @@ import App from "./App";
 
 import { ThemeModeProvider } from "contexts/ThemeModeContext";
 
-import "styles/global.scss";
 
 ReactDOM.render(
   <React.StrictMode>

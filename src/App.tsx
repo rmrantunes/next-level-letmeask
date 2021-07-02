@@ -2,6 +2,7 @@ import "services/firebase";
 
 import { ThemeProvider } from "styled-components";
 import { AuthContextProvider } from "contexts/AuthContext";
+import GlobalStyle from "styles/GlobalStyle";
 import Routes from "routes/routes";
 import { useThemeMode } from "hooks/useThemeMode";
 
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme!}>
+      <GlobalStyle />
       <AuthContextProvider>
         <Routes />
       </AuthContextProvider>
