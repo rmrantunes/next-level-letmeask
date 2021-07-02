@@ -26,7 +26,16 @@ const Question = (props: QuestionProps) => {
       {...(props.isHighlighted && { "aria-label": "Pergunta em destaque" })}
       {...(props.isAnswered && { "aria-label": "Pergunta respondida" })}
     >
-      <p className="content">{props.content}</p>
+      <p className="content">
+        {props.isAnswered ? (
+          <i>Respondida - </i>
+        ) : props.isHighlighted ? (
+          <i>Em destaque - </i>
+        ) : (
+          ""
+        )}{" "}
+        {props.content}
+      </p>
       <S.QuestionFooter>
         <User name={props.author.name} avatar={props.author.avatar} />
         <S.QuestionInteractionButtons>

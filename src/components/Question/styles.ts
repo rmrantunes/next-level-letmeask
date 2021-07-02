@@ -20,8 +20,8 @@ export const Question = styled.div`
 
     &.highlighted {
       background: ${theme.mode === "light" && theme.colors.highlight};
-      font-weight: ${theme.font.medium};
       border: 1px solid ${theme.colors.purple};
+      font-weight: ${theme.font.medium};
 
       p {
         color: ${theme.mode === "dark" && theme.colors.purple};
