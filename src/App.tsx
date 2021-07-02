@@ -5,6 +5,7 @@ import { AuthContextProvider } from "contexts/AuthContext";
 import GlobalStyle from "styles/GlobalStyle";
 import Routes from "routes/routes";
 import { useThemeMode } from "hooks/useThemeMode";
+import ToggleTheme from "components/ToggleTheme";
 
 function App() {
   const { theme } = useThemeMode();
@@ -15,6 +16,7 @@ function App() {
       <AuthContextProvider>
         <Routes />
       </AuthContextProvider>
+      <ToggleTheme />
     </ThemeProvider>
   );
 }
