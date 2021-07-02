@@ -15,9 +15,9 @@ export const Textarea = styled.textarea`
     width: 100%;
     border: 0;
     border-radius: ${theme.rounded.lg};
-    padding: ${theme.sizes[20]};
+    padding: ${theme.sizes[4]};
     background: #fefefe;
-    box-shadow: 0 2px 12px ${theme.colors.shadow};
+    box-shadow: ${theme.shadow.sm}
     resize: vertical;
     min-height: ${theme.sizes[32]};
   `}
