@@ -5,7 +5,7 @@ import Button from "components/Button";
 
 import logoImg from "assets/logo.svg";
 
-import "styles/header.scss";
+import * as S from "./styles";
 
 type HeaderProps = {
   onEndRoom?: () => void | Promise<void>;
@@ -17,13 +17,13 @@ type HeaderProps = {
 
 const Header = (props: HeaderProps) => {
   return (
-    <header>
-      <div className="header-content">
+    <S.Header>
+      <S.HeaderContent>
         <Link to="/" aria-label="Ir para a página inicial">
           <img src={logoImg} alt="Letmeask" />
         </Link>
 
-        <div>
+        <S.HeaderNavigation>
           <RoomCode code={props.roomId} />
           {props.isAdmin && props.isLoggedIn && (
             <Button isOutlined onClick={props.onEndRoom}>
@@ -31,17 +31,18 @@ const Header = (props: HeaderProps) => {
             </Button>
           )}
           {props.isLoggedIn && (
-            <button
+            <Button
+              bgColor="danger"
               aria-label="Sair da plataforma"
               className="sign-out"
               onClick={props.onSignOut}
             >
               Sair
-            </button>
+            </Button>
           )}
-        </div>
-      </div>
-    </header>
+        </S.HeaderNavigation>
+      </S.HeaderContent>
+    </S.Header>
   );
 };
 
