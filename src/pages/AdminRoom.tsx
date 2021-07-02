@@ -11,6 +11,8 @@ import deleteImg from "assets/delete.svg";
 import checkImg from "assets/check.svg";
 import answerImg from "assets/answer.svg";
 
+import { QuestionList } from "components/Question/styles";
+
 import "styles/room.scss";
 
 type AdminRoomParams = { id: string };
@@ -77,7 +79,7 @@ const AdminRoom = () => {
           )}
         </div>
 
-        <div className="question-list">
+        <QuestionList>
           {questions.map((question) => (
             <Question
               key={question.id}
@@ -119,7 +121,7 @@ const AdminRoom = () => {
               )}
             </Question>
           ))}
-        </div>
+        </QuestionList>
       </main>
     </div>
   );

@@ -8,6 +8,8 @@ import Button from "components/Button";
 import Question from "components/Question";
 import Header from "components/Header";
 
+import { QuestionList } from "components/Question/styles";
+
 import "styles/room.scss";
 
 type RoomParams = { id: string };
@@ -101,7 +103,7 @@ const Room = () => {
           </div>
         </form>
 
-        <div className="question-list">
+        <QuestionList>
           {questions.map((question) => (
             <Question
               key={question.id}
@@ -148,7 +150,7 @@ const Room = () => {
               )}
             </Question>
           ))}
-        </div>
+        </QuestionList>
       </main>
     </div>
   );
