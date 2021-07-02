@@ -29,6 +29,7 @@ const theme = {
   },
   rounded: {
     lg: "0.5rem",
+    full: "9999px",
   },
   sizes: {
     "0": "0",
