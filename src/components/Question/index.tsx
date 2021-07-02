@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 
-import "styles/question.scss";
+import * as S from "./styles";
 
 type QuestionProps = {
   content: string;
@@ -16,9 +16,8 @@ type QuestionProps = {
 
 const Question = (props: QuestionProps) => {
   return (
-    <div
+    <S.Question
       className={cx(
-        "question",
         { answered: props.isAnswered },
         { highlighted: props.isHighlighted && !props.isAnswered }
       )}
@@ -26,14 +25,16 @@ const Question = (props: QuestionProps) => {
       {...(props.isAnswered && { "aria-label": "Pergunta respondida" })}
     >
       <p className="content">{props.content}</p>
-      <footer>
-        <div className="user-info">
+      <S.QuestionFooter>
+        <S.QuestionUserInfo className="user-info">
           <img src={props.author.avatar} alt={props.author.name} />
           <span>{props.author.name}</span>
-        </div>
-        <div>{props.children}</div>
-      </footer>
-    </div>
+        </S.QuestionUserInfo>
+        <S.QuestionInteractionButtons>
+          {props.children}
+        </S.QuestionInteractionButtons>
+      </S.QuestionFooter>
+    </S.Question>
   );
 };
 
