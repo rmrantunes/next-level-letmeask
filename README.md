@@ -11,19 +11,19 @@ Projeto da trilha de React do Next Level Week Together (6).
 
 ## Como deixei no próximo nível:
 
-As principais diferenças ao projeto na última aula são:
+As principais diferenças entre projeto na última aula são:
 
 ### Dark Mode
 
 ![Logged User](public/screenshots/logged-user.png)
 
-### Responsivo
+### Responsividade
 
 ![Dark Mode](public/screenshots/home-mobile.png)
 
 ### Admin Room
 
-Proteção das ações que somente o administrador da sala pode executar para outros usuários.
+Limitação das ações que somente o administrador da sala pode executar para outros usuários.
 
 ![Admin Room](public/screenshots/not-admin-in-admin-room.png)
 
