@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useAuth } from "hooks/useAuth";
 import { useRoom } from "hooks/useRoom";
 import { database } from "services/firebase";
@@ -21,8 +21,9 @@ type RoomParams = { id: string };
 const Room = () => {
   const { user, signOut, signInWithGoogle } = useAuth();
   const params = useParams<RoomParams>();
+  const history = useHistory();
   const roomId = params.id;
-  const { questions, title } = useRoom(roomId);
+  const { questions, title, isAdmin } = useRoom(roomId);
   const [newQuestion, setNewQuestion] = useState("");
 
   async function handleSendNewQuestion(event: React.FormEvent) {
@@ -62,6 +63,10 @@ const Room = () => {
     window.location.reload();
   }
 
+  function handleGoToAdminRoom() {
+    history.push(`/admin/rooms/${roomId}`);
+  }
+
   return (
     <div id="page-room">
       <Header
@@ -76,7 +81,12 @@ const Room = () => {
         <form onSubmit={handleSendNewQuestion}>
           <TextField
             as="textarea"
-            placeholder="O que você quer perguntar?"
+            placeholder={
+              isAdmin
+                ? "Você é o admistrador da sala!"
+                : "O que você quer perguntar?"
+            }
+            disabled={isAdmin}
             value={newQuestion}
             onChange={(event) => setNewQuestion(event.target.value)}
           />
@@ -90,9 +100,15 @@ const Room = () => {
                 <button onClick={signInWithGoogle}>faça seu login</button>
               </span>
             )}
-            <Button type="submit" disabled={!user}>
-              Enviar pergunta
-            </Button>
+            {isAdmin ? (
+              <Button onClick={handleGoToAdminRoom}>
+                Ir para visão do Administrador
+              </Button>
+            ) : (
+              <Button type="submit" disabled={!user}>
+                Enviar pergunta
+              </Button>
+            )}
           </S.FormFooter>
         </form>
 
