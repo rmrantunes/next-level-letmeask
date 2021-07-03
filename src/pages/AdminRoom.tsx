@@ -73,6 +73,9 @@ const AdminRoom = () => {
         <RoomTitle title={title} questionQuantity={questions.length} />
 
         <QuestionList>
+          {!questions.length && (
+            <p>🤔 - Hmm. Zero perguntas. Logo alguém se expressa.</p>
+          )}
           {questions.map((question) => (
             <Question
               key={question.id}
