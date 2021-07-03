@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { DefaultTheme } from "styled-components";
 import { DarkTheme, Theme } from "styles/theme";
 
@@ -10,11 +10,21 @@ type UseThemeProps = {
 };
 
 function useTheme(props: UseThemeProps) {
-  const [theme, setTheme] = useState<ThemeModes>("dark");
+  const localStorageThemeMode = window.localStorage.getItem(
+    "themeMode"
+  ) as ThemeModes | null;
+
+  const [theme, setTheme] = useState<ThemeModes>(
+    localStorageThemeMode || "dark"
+  );
 
   const toggleTheme = useCallback(() => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
   }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("themeMode", theme);
+  }, [theme]);
 
   return {
     theme: props[theme] as DefaultTheme,
